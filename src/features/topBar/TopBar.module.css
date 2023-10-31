@@ -1,0 +1,72 @@
+.top-bar {
+    position: fixed;
+    display: flex;
+    /* background-color: #333; */
+    background-color: #141414;
+    color: #333;
+    height: 4rem;
+    padding: 0rem 1rem 1rem 1rem;
+    width: 100%;
+    justify-items: center;
+}
+
+.NavWrap {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+    /* Add this line */
+}
+
+.logo-container {
+    display: flex;
+
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('../../assets/icons/icons8-reddit-64.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.search-container {}
+
+.search-form {
+    display: flex;
+}
+
+.search {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    width: 15rem;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../assets/icons/icons8-magnifier-64.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

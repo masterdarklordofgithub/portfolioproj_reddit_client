@@ -1,0 +1,8 @@
+ .mainContent {
+     background-color: #333;
+     margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+     color: #FFF;
+     height: fit-content;
+     padding: 1rem;
+     width: 100%;
+ }

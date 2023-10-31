@@ -1,0 +1,20 @@
+ .leftBar {
+     /* background-color: #333; */
+     background-color: #141414;
+     color: #fff;
+     height: fit-content;
+     width: fit-content;
+     padding: 1rem;
+     margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+ }
+
+
+ .noBullets {
+     list-style-type: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ li {
+     margin: 0.7rem 0;
+ }

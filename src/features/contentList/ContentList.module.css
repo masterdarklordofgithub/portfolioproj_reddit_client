@@ -1,0 +1,7 @@
+.ContentList {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding: 0 1rem;
+
+}

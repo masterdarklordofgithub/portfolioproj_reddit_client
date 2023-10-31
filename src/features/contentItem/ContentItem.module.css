@@ -1,0 +1,17 @@
+.contentItem {
+    flex-direction: column;
+
+    /* color: #FFF; */
+    /* background-color: #333; */
+    background-color: #141414;
+    color: #FFF;
+    width: 100%;
+    justify-items: center;
+    margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+    padding: 1rem;
+    max-width: 1200px;
+}
+
+img {
+    max-width: 100%;
+}
