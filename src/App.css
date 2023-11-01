@@ -29,3 +29,9 @@
 .mainContent {
   flex: 1 1 auto;
 }
+
+@media screen and (max-width: 900px) {
+  .topBarSpacer {
+    height: 3rem;
+  }
+}
