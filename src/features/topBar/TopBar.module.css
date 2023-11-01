@@ -1,7 +1,6 @@
 .top-bar {
     position: fixed;
     display: flex;
-    /* background-color: #333; */
     background-color: #141414;
     color: #333;
     height: 4rem;
@@ -12,7 +11,7 @@
 
 .NavWrap {
     display: flex;
-    width: 80%;
+    width: 100%;
     align-items: center;
     justify-content: space-evenly;
     /* Add this line */
@@ -69,4 +68,53 @@
     background-image: url('../../assets/icons/icons8-magnifier-64.png');
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 900px) {
+    .search-icon {
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .top-bar {
+        height: 3rem;
+        padding: 0rem 0.5rem 0.5rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search {
+        font-size: 0.5rem;
+        padding: 0.15rem 0;
+        width: 7rem;
+    }
+
+    .logo {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .top-bar {
+        height: 1.5rem;
+        padding: 0rem 0.3rem 0.3rem 0.3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search {
+        font-size: 0.3rem;
+        padding: 0.1rem 0;
+        width: 4rem;
+    }
+
+    .logo {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .top-bar {
+        height: 1rem;
+        padding: 0rem 0.2rem 0.2rem 0.2rem;
+    }
 }
