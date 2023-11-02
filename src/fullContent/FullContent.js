@@ -1,15 +1,18 @@
 import React from 'react';
+import styles from './FullContent.module.css';
 
 export default function FullContent({ content }) {
+  const { id, title, preview, fullText, image } = content;
   if (content.title) {
     return (
       <>
-        <div className='fullContent'>
-          <img src={content.image} alt='contentpicture' />
-        </div>
-        <div key={content.id} className=''>
-          <h1 className=''>{content.title}</h1>
-          <div className=''>{content.preview}</div>
+        <div className={styles.fullContent}>
+          <h1 className=''>{title}</h1>
+          <img src={image} alt='contentpicture' />
+
+          <div key={content.id} className=''>
+            <div className={styles.contentFullText}>{fullText}</div>
+          </div>
         </div>
       </>
     );
