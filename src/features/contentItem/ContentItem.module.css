@@ -1,28 +1,36 @@
-.contentItem {
-    flex-direction: column;
-    /* color: #FFF; */
-    /* background-color: #333; */
-    color: #FFF;
-    width: 100%;
-    justify-items: center;
-    padding: 0.5rem;
-    max-width: 1200px;
-}
-
 .contentButton {
+    display: flex;
     background-color: #141414;
-    margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    justify-items: center;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+.contentItem {
+    display: flex;
+    flex-direction: column;
+    margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+    color: #FFF;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
 .contentButton:hover {
-    opacity: 0.8;
+    opacity: 0.6;
+    border: 2px solid rgb(44, 44, 44);
+    box-sizing: border-box;
 }
 
 img {
     max-width: 100%;
+
 }
 
 @media screen and (max-width: 700px) {

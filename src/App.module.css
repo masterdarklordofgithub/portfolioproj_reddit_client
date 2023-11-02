@@ -5,17 +5,9 @@
   height: 100%;
 }
 
-.topBar {
-  flex: 0 0 auto;
-}
-
 .topBarSpacer {
   flex: 0 0 auto;
   height: 4rem;
-}
-
-.leftBar {
-  color: white;
 }
 
 .contentWrapper {
@@ -33,5 +25,17 @@
 @media screen and (max-width: 900px) {
   .topBarSpacer {
     height: 3rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .topBarSpacer {
+    height: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .topBarSpacer {
+    height: 0.5rem;
   }
 }

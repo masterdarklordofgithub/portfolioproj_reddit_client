@@ -7,7 +7,7 @@ import {
 } from './CurrentContentSlice';
 
 
-const CurrentContent = () => {
+const CurrentContent = ({ id, title, preview, fullText, image }) => {
     const dispatch = useDispatch();
     const content = useSelector(selectCurrentContent);
     const currentContentIsLoading = useSelector(isLoadingCurrentContent);
@@ -15,7 +15,7 @@ const CurrentContent = () => {
     if (currentContentIsLoading) {
         return (
             <div>
-                <h1>Loading...</h1>
+                <h1>Loading content...</h1>
             </div>
         );
     } else if (!content) {

@@ -1,0 +1,18 @@
+.fullContent {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 0.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #333;
+}
+
+h1 {
+    color: white;
+}
+
+.contentFullText {
+    color: white;
+
+}
