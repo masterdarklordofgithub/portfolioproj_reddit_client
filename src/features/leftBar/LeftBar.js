@@ -7,11 +7,11 @@ function LeftBar() {
             <h2>Topics</h2>
             <div className={""}>
                 <ul className={styles.noBullets}>
-                    <li>Topic 1</li>
-                    <li>Topic 2</li>
-                    <li>Topic 3</li>
-                    <li>Topic 4</li>
-                    <li>Topic 5</li>
+                    <li><span>Topic 1</span></li>
+                    <li><span>Topic 2</span></li>
+                    <li><span>Topic 3</span></li>
+                    <li><span>Topic 4</span></li>
+                    <li><span>Topic 5</span></li>
                 </ul>
             </div>
         </div>
