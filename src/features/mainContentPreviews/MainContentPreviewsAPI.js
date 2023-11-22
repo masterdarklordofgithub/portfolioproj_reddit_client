@@ -29,6 +29,78 @@ const contentPreviews = [
     }
 ];
 
+const comments = [
+    {
+        "contentId": 1,
+        "data": [
+            {
+                "id": 1,
+                "text": "It's a very interesting article"
+            },
+            {
+                "id": 2,
+                "text": "I like it"
+            },
+            {
+                "id": 3,
+                "text": "I don't like it"
+            },
+        ]
+    },
+    {
+        "contentId": 2,
+        "data": [
+
+        ]
+    },
+    {
+        "contentId": 3,
+        "data": [
+            {
+                "id": 1,
+                "text": "It's a very interesting article but I don't like it at all, or do I?"
+            },
+            {
+                "id": 2,
+                "text": "yo soy banana banderos"
+            },
+            {
+                "id": 3,
+                "text": "muchaho gostafuooo"
+            },
+            {
+                "id": 4,
+                "text": "It's such much interesting article"
+            },
+            {
+                "id": 5,
+                "text": "I like it sometimes, sometimes I don't like it"
+            },
+            {
+                "id": 6,
+                "text": "I don't like it at all"
+            },
+        ]
+    }
+]
+
+export function fetchCommentsByContentId(contentId) {
+    return new Promise((resolve, reject) => {
+        // Simulate a delay with setTimeout
+        setTimeout(() => {
+            // Find the comments object for the given contentId
+            const commentsObject = comments.find(comment => comment.contentId === contentId);
+
+            // If a comments object is found, resolve the promise with the data array.
+            // Otherwise, reject the promise with an error message.
+            if (commentsObject) {
+                resolve(commentsObject.data);
+            } else {
+                reject(`No comments found for contentId ${contentId}`);
+            }
+        }, 1000);  // 1 second delay
+    });
+}
 export function fetchContentPreviews() {
     return new Promise((resolve) =>
         setTimeout(() => resolve({ data: contentPreviews }), 500)

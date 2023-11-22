@@ -4,15 +4,6 @@ import { fetchFullContentById } from '../mainContentPreviews/MainContentPreviews
 // create an async thunk to load the current content
 export const loadCurrentContent = createAsyncThunk(
     'currentContent/loadCurrentContent',
-
-
-    //const data = await fetch(`api/articles/${contentId}`);
-    // const data = await fetch(`../../../mocks/mockRedditContent.json`);
-    // const json = await data.json();
-
-    // console.log(json);
-    // console.log("hello from CurrentContentSlice.js" + JSON.stringify(json));
-    // return json;
     async (data) => {
         // Fetch the content previews data using the fetchContentPreviews function
         const response = await fetchFullContentById(data.id);
@@ -21,6 +12,17 @@ export const loadCurrentContent = createAsyncThunk(
     }
 
 );
+// export const loadComments = createAsyncThunk(
+//     'currentContent/loadComments',
+//     async (data) => {
+//         console.log(`hello from loadComments in CurrentContentSlice.js: ${response.data}`)
+//         // Fetch the comments data using the fetchCommentsByContentId function
+//         const response = await fetchCommentsByContentId(data.id);
+//         // Return the data as the payload of the action
+//         console.log(`hello from loadComments in CurrentContentSlice.js: ${response.data}`)
+//         return response.data;
+//     }
+// );
 
 // create a slice for the current content
 export const currentContentSlice = createSlice({
@@ -28,6 +30,7 @@ export const currentContentSlice = createSlice({
     initialState: {
         content: {},
         status: 'idle',
+        comments: [],
         error: false
     },
     extraReducers: (builder) => {
@@ -43,8 +46,30 @@ export const currentContentSlice = createSlice({
                 state.status = 'failed';
                 state.error = action.error.message;
             })
+        // .addCase(loadComments.pending, (state, action) => {
+        //     state.status = 'loading';
+        // })
+        // .addCase(loadComments.fulfilled, (state, action) => {
+        //     state.status = 'succeeded';
+        //     state.comments = action.payload;
+        // })
+        // .addCase(loadComments.rejected, (state, action) => {
+        //     state.status = 'failed';
+        //     state.error = action.error.message;
+        // })
     },
 });
+// select the current comments from the state
+// export const selectComments =(id)=> (state) => state.comments.comments;
+// export const selectCommentsByContentId = (contentId) => (state) => {
+//     const contentComments = state.currentContent.comments.find(comment => comment.contentId === contentId);
+//     return contentComments ? contentComments.data : [];
+// };
+
+
+// export const selectCommentsByContentId = (contentId) => (state) => state.currentContent.comments;
+// // select the loading state of the comments from the state
+// export const isLoadingComments = (state) => state.currentContent.isLoadingComments;
 
 // select the current content from the state
 export const selectCurrentContent = (state) => state.currentContent.content;

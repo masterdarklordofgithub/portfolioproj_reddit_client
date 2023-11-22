@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
+import Comments from './features/comments/Comments';
 import CurrentContent from './features/currentContent/CurrentContent';
 import LeftBar from './features/leftBar/LeftBar';
 import MainContentPreviews from './features/mainContentPreviews/MainContentPreviews';
@@ -17,6 +18,7 @@ function App() {
         <main>
           <div>
             <CurrentContent />
+            <Comments />
           </div>
           <MainContentPreviews className={styles.mainContent} />
         </main>
