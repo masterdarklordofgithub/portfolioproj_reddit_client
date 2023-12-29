@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchContentPreviews } from './MainContentPreviewsAPI';
+import { fetchRedditPosts } from '../../middleware/redditAPI';
+// import { fetchContentPreviews } from './MainContentPreviewsAPI';
 
 // Define the initial state of the content previews slice
 const initialState = {
@@ -13,9 +14,9 @@ export const loadAllContents = createAsyncThunk(
     'contentPreviews/loadAllContents',
     async () => {
         // Fetch the content previews data using the fetchContentPreviews function
-        const response = await fetchContentPreviews();
+        const response = await fetchRedditPosts();
         // Return the data as the payload of the action
-        return response.data;
+        return response;
     }
 );
 

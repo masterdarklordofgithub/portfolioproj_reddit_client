@@ -6,35 +6,37 @@ import styles from './ContentList.module.css';
 
 function ContentList({ items }) {
     const dispatch = useDispatch();
-
     const listOfItems = items.map((item, i) => {
-        // Destructure the name property from the contact object and assign the remaining properties to the rest variable
-        const { id, title, preview, fullText, image } = item;
+        const { id, title, selftext } = item;
+        let mediaUrl = null;
 
-        // Render a Tile component with props for the content: id, title, preview (text), fullText, and image
+        if (!item.is_video) {
+            mediaUrl = decodeURIComponent(item.url_overridden_by_dest);
+
+        } else if (item.is_video) {
+            mediaUrl = item.secure_media.reddit_video.fallback_url;
+        }
+
         return (
             <ContentItem
                 key={i}
-                id={item.id}
-                title={item.title}
-                preview={item.preview}
-                fullText={item.fullText}
-                image={item.image}
-            // onClick={
-            //     (e) => dispatch(loadCurrentContent({ id, title, preview, fullText, image }))
-            // }
-            >
-            </ContentItem>
+                id={id}
+                title={title}
+                preview={selftext}
+                fullText={selftext}
+                mediaUrl={mediaUrl}
+                isVideo={item.is_video}
+            />
         );
-    })
+    });
+
     return (
         <div id="contentList" name="contentList"
             className={styles.ContentList}
         >
-            {/* <h2>Topic 1</h2>
-            <p>Topic 1 content</p> */}
             {listOfItems}
         </div>
     );
 }
+
 export default ContentList;

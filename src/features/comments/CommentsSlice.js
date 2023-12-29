@@ -1,14 +1,33 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCommentsByContentId } from '../mainContentPreviews/MainContentPreviewsAPI';
+//import { fetchCommentsByContentId } from '../mainContentPreviews/MainContentPreviewsAPI';
+import { fetchRedditComments } from '../../middleware/redditAPI';
 
 // create an async thunk to load the comments
+// export const loadComments = createAsyncThunk(
+//     'comments/loadComments',
+//     async (id) => {
+//         // Fetch the comments data using the fetchCommentsByContentId function
+//         //const response = await fetchCommentsByContentId(id);
+//         if (!id) {
+//             return;
+//         }
+//         const response = await fetchRedditComments(id);
+//         return response;
+//         // Return the data as the payload of the action
+
+//     }
+// );
+// Async thunk for fetching Reddit comments
 export const loadComments = createAsyncThunk(
-    'comments/loadComments',
-    async (id) => {
-        // Fetch the comments data using the fetchCommentsByContentId function
-        const response = await fetchCommentsByContentId(id);
-        // Return the data as the payload of the action
-        return response;
+    'comments/fetchRedditComments',
+    async (postId) => {
+        if (!postId) {
+            return;
+        }
+        const response = await fetchRedditComments(postId);
+        const data = await response.json();
+        console.log(`hello from loadComments in CommentsSlice.js: ${response}`);
+        return data;
     }
 );
 
@@ -27,7 +46,11 @@ export const commentsSlice = createSlice({
             })
             .addCase(loadComments.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.comments = action.payload;
+                // Add any fetched comments to the array
+                console.log(`hello from loadComments in CommentsSlice.js: ${action.payload}`)
+                state.comments = state.comments.concat(action.payload);
+                console.log(state.comments);
+                // state.comments = action.payload;
             })
             .addCase(loadComments.rejected, (state, action) => {
                 state.status = 'failed';

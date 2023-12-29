@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loadCurrentContent } from '../currentContent/CurrentContentSlice';
 import styles from './ContentItem.module.css';
 
-
-function ContentItem({ id, title, preview, fullText, image }) {
+function ContentItem({ id, title, preview, fullText, mediaUrl, isVideo }) {
     const dispatch = useDispatch();
     return (
         <button key={id} className={styles.contentButton}>
@@ -15,8 +14,13 @@ function ContentItem({ id, title, preview, fullText, image }) {
                 }
             >
                 <h2>{title}</h2>
-                <img src={image} alt="" className={styles.imageContainer} />
-                <p>{preview}</p>
+                {isVideo ? (
+
+                    <video src={mediaUrl} alt={title} className={styles.mediaContainer} controls />
+                ) : (
+                    <img src={mediaUrl} alt={title} className={styles.mediaContainer} />
+                )}
+                {/* <p>{preview}</p> */}
             </div>
         </button>
     );

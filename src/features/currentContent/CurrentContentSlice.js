@@ -1,16 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchFullContentById } from '../mainContentPreviews/MainContentPreviewsAPI';
-
+// import { fetchFullContentById } from '../mainContentPreviews/MainContentPreviewsAPI';
+import { fetchRedditComments } from '../../middleware/redditAPI';
 // create an async thunk to load the current content
 export const loadCurrentContent = createAsyncThunk(
     'currentContent/loadCurrentContent',
     async (data) => {
         // Fetch the content previews data using the fetchContentPreviews function
-        const response = await fetchFullContentById(data.id);
+        // const response = await fetchFullContentById(data.id);
+        const response = await fetchRedditComments(data.id);
+        console.log(data.id);
+        console.log(response);
         // Return the data as the payload of the action
-        return response.data;
+        return response;
     }
-
 );
 // export const loadComments = createAsyncThunk(
 //     'currentContent/loadComments',
@@ -40,6 +42,7 @@ export const currentContentSlice = createSlice({
             })
             .addCase(loadCurrentContent.fulfilled, (state, action) => {
                 state.status = 'succeeded';
+                console.log(action.payload + 'hello from loadCurrentContent in CurrentContentSlice.js');
                 state.content = action.payload;
             })
             .addCase(loadCurrentContent.rejected, (state, action) => {

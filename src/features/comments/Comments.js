@@ -14,7 +14,7 @@ const Comments = () => {
     const commentsAreLoading = useSelector(isLoadingComments);
 
     const comments = useSelector(loadCommentsForContentId(content.id));
-
+    //console.log(comments);
 
     useEffect(() => {
         if (content) {

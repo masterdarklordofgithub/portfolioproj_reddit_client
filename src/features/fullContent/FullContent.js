@@ -31,7 +31,6 @@ export default function FullContent({ content }) {
   //   );
   // });
 
-
   return (
     <>
       <div className={styles.fullContent}>
